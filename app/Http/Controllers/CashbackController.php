@@ -38,10 +38,6 @@ class CashbackController extends Controller
             return Carbon::parse($val->sale_date)->format('m');
         // orderBy('sale_date','DESC')->select('sale_date')->first();
         });
-        // return response()->json(
-        //     [
-        //     'val' => 'test',
-        //     ]);
         
         return $data;
     }
