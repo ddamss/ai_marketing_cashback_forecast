@@ -34,3 +34,5 @@ Route::apiResource('cashback',CashbackController::class);
 Route::get('getLastInsert', [CashbackController::class, 'getLastInsert'])->name('cashback.getLastInsert');
 
 Route::get('cashbacksDate', [CashbackController::class, 'cashbacksDate'])->name('cashback.cashbacksDate');
+
+Route::get('test', [CashbackController::class, 'test'])->name('test');

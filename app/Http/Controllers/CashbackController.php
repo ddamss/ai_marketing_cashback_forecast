@@ -79,14 +79,14 @@ class CashbackController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * test endpoint
      */
-    public function show($id)
+    public function test()
     {
-        //
+        return response()->json(
+            [
+            'status' => 'test',
+            ]);
     }
 
     /**
