@@ -62,7 +62,7 @@ var obj, requestOptions = {
     redirect: 'follow'
   };
   
-  fetch("https://ai-marketing-cashback-forecast.herokuapp.com/api/cashbacksDays", requestOptions)
+  fetch("https://ai-marketing-cashback-forecast.herokuapp.com/api/cashbacksDate", requestOptions)
 .then(res => res.json())
         .then(data => obj = data)
         .then(() => console.log(obj))
