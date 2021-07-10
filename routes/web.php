@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/cashback', function () {
-    // return view('display_forecast_data');
-    dd("hello");
+    return view('display_forecast_data');
 });
