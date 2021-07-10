@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/cashback', function () {
+    // return view('display_forecast_data');
+    dd("hello");
 });
