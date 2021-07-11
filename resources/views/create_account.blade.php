@@ -96,7 +96,7 @@
 </head>
 <body>
 
-<form>
+<form method="POST" action="{{route('account.store')}}" >
 
   <label>
     <p class="label-txt">ENTER YOUR NAME</p>

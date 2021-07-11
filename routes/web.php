@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,6 @@ Route::get('/cashback', function () {
     return view('display_forecast_data');
 });
 
-Route::get('/create', function () {
-    return view('create_account');
-});
+// Route::get('/created', [AccountController::class,'create']);
+
+Route::resource('/account', AccountController::class);
