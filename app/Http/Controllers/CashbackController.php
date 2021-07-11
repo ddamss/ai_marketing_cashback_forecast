@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Log\LogManager;
 use Carbon\Carbon;
 use Illuminate\Log\Monolog\Logger as Monolog;
+use Illuminate\Support\Facades\DB;
+
 class CashbackController extends Controller
 {
     /**
@@ -70,10 +72,22 @@ class CashbackController extends Controller
 
         }
 
+        $delete=DB::delete('
+        DELETE FROM cashbacks
+        WHERE id NOT IN 
+            (SELECT * FROM 
+                (
+                SELECT MAX(id) FROM cashbacks
+                GROUP BY cashback,payment_delay,sale_amount,cashback_rate,sale_date
+                )tblTemp
+            )'
+        );
+
     return response()->json(
         [
         'status' => 'success',
         'lines_inserted' => sizeof($data_insertion),
+        'duplicates_removed'=>$delete
         ]);
     
     }
@@ -83,32 +97,11 @@ class CashbackController extends Controller
      */
     public function test()
     {
-        return response()->json(
+
+         return response()->json(
             [
-            'status' => 'test',
+            'api_status'=>'ok'
             ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
