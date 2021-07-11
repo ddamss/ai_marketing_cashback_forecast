@@ -50,7 +50,7 @@ class AccountController extends Controller
             'token'=>$token
         ]);
         
-        Route::redirect('/account_created', $account);
+        Route::redirect()->view('account_created', $account);
         // return dd($token);
     }
 
