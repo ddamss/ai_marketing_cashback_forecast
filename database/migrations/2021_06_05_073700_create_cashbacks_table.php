@@ -15,6 +15,10 @@ class CreateCashbacksTable extends Migration
     {
         Schema::create('cashbacks', function (Blueprint $table) {
             $table->bigIncrements("id");
+            $table->unsignedInteger('account_id')
+                ->foreign('account_id')
+                ->references('id')->on('accounts')
+                ->onDelete('cascade');
             $table->integer("page");
             $table->float("cashback");
             $table->integer("payment_delay");

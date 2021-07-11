@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Cashback;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Log\LogManager;
-use Carbon\Carbon;
-use Illuminate\Log\Monolog\Logger as Monolog;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Log\Monolog\Logger as Monolog;
 
 class CashbackController extends Controller
 {

@@ -2,14 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Account;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cashback extends Model
 {
     protected $fillable = ['page', 'cashback', 'payment_delay', 'sale_date', 'sale_amount', 'cashback_rate', 'payment_status','first_item','row_id'];
-    // protected $casts = [
-    //     'sale_date' => 'datetime:d-m-Y H:i'
-    // ];
+
     use HasFactory;
+
+    /**
+     * Get the account that owns the cashbacks.
+     */
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
 }

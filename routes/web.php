@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/cashback', function () {
     return view('display_forecast_data');
 });
+
+Route::get('/create', function () {
+    return view('create_account');
+});
