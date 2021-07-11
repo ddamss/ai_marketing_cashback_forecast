@@ -18,6 +18,8 @@ Route::get('/cashback', function () {
     return view('display_forecast_data');
 });
 
-// Route::get('/created', [AccountController::class,'create']);
+Route::get('/created', function($account){
+    return view ('account_created',$account);
+})->name('created');
 
 Route::resource('/account', AccountController::class);
