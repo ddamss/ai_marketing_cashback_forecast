@@ -968,3 +968,26 @@
 #41 C:\\laragon\\www\\ai_marketing_cashback_forecast\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #42 {main}
 "} 
+[2021-07-11 11:20:07] local.ERROR: syntax error, unexpected ')' {"exception":"[object] (ParseError(code: 0): syntax error, unexpected ')' at C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Testing\\Concerns\\TestDatabases.php:159)
+[stacktrace]
+#0 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\composer\\ClassLoader.php(346): Composer\\Autoload\\includeFile('C:\\\\laragon\\\\www\\\\...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('Illuminate\\\\Test...')
+#2 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Testing\\ParallelTestingServiceProvider.php(11): spl_autoload_call('Illuminate\\\\Test...')
+#3 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\composer\\ClassLoader.php(480): include('C:\\\\laragon\\\\www\\\\...')
+#4 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\composer\\ClassLoader.php(346): Composer\\Autoload\\includeFile('C:\\\\laragon\\\\www\\\\...')
+#5 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('Illuminate\\\\Test...')
+#6 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(735): spl_autoload_call('Illuminate\\\\Test...')
+#7 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(669): Illuminate\\Foundation\\Application->resolveProvider('Illuminate\\\\Test...')
+#8 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\AggregateServiceProvider.php(31): Illuminate\\Foundation\\Application->register('Illuminate\\\\Test...')
+#9 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Providers\\FoundationServiceProvider.php(44): Illuminate\\Support\\AggregateServiceProvider->register()
+#10 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(672): Illuminate\\Foundation\\Providers\\FoundationServiceProvider->register()
+#11 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Illuminate\\Foundation\\Providers\\FoundationServiceProvider))
+#12 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(649): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#13 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#14 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#15 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(152): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#16 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(136): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#17 C:\\laragon\\www\\ai_marketing_cashback_forecast\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(110): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#18 C:\\laragon\\www\\ai_marketing_cashback_forecast\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#19 {main}
+"} 

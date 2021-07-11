@@ -96,7 +96,7 @@
 </head>
 <body>
 
-<form method="POST" action="{{route('account.store')}}" >
+<form method="POST" action="{{route('account.store')}}" > 
 @csrf
   <label>
     <p class="label-txt">ENTER YOUR NAME</p>
