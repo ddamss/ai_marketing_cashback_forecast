@@ -1,112 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create account</title>
+@extends('app')
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-    <style>
-    
-    body {
-    background: #C5E1A5;
-    }
-    form {
-    width: 60%;
-    margin: 60px auto;
-    background: #efefef;
-    padding: 60px 120px 80px 120px;
-    text-align: center;
-    -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-    box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-    }
-    label {
-    display: block;
-    position: relative;
-    margin: 40px 0px;
-    }
-    .label-txt {
-    position: absolute;
-    top: -1.6em;
-    padding: 10px;
-    font-family: sans-serif;
-    font-size: .8em;
-    letter-spacing: 1px;
-    color: rgb(120,120,120);
-    transition: ease .3s;
-    }
-    .input {
-    width: 100%;
-    padding: 10px;
-    background: transparent;
-    border: none;
-    outline: none;
-    }
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Account creation</div>
 
-    .line-box {
-    position: relative;
-    width: 100%;
-    height: 2px;
-    background: #BCBCBC;
-    }
+                <div class="card-body">
+                    <form method="POST" action="{{ route('account.store') }}">
+                        @csrf
 
-    .line {
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #8BC34A;
-    transition: ease .6s;
-    }
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">ENTER YOUR NAME</label>
 
-    .input:focus + .line-box .line {
-    width: 100%;
-    }
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-    .label-active {
-    top: -3em;
-    }
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
-    button {
-    display: inline-block;
-    padding: 12px 24px;
-    background: rgb(220,220,220);
-    font-weight: bold;
-    color: rgb(120,120,120);
-    border: none;
-    outline: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: ease .3s;
-    }
-
-    button:hover {
-    background: #8BC34A;
-    color: #ffffff;
-    }
-
-    </style>
-    
-</head>
-<body>
-
-<form method="POST" action="{{route('account.store')}}" > 
-@csrf
-  <label>
-    <p class="label-txt">ENTER YOUR NAME</p>
-    <input type="text" class="input" name="name">
-    <div class="line-box">
-      <div class="line"></div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    create
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  </label>
-
-  <button type="submit">create</button>
-</form>
-</body>
-</html>
+</div>
+@endsection
