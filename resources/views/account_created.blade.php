@@ -16,7 +16,7 @@
     <div style="height:20px;"></div>
     <br>
     <div class="alert alert-success" role="alert">
-    <h4 class="alert-heading" style="text-align:center;">Your account created <b>{{$account->name}}</b> ! </h4>
+    <h4 class="alert-heading" style="text-align:center;">Your account has been created {<b>{{$account->name}}</b>} ! </h4>
     <hr>
     <p class="mb-0">Use this link to see your cashback forecast graph : https://ai-marketing-cashback-forecast.herokuapp.com/?token={{$account->token}}</p>
     </div>
