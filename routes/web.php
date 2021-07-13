@@ -14,6 +14,10 @@ use App\Http\Controllers\AccountController;
 |
 */
 
+Route::get('/cashback', function () {
+    return view('display_forecast_data');
+});
+
 Route::get('/cashback/?token={token}', function () {
     return view('display_forecast_data');
 });
