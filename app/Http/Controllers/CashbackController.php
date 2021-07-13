@@ -59,6 +59,7 @@ class CashbackController extends Controller
 
             $data=Cashback::create([
                 'page'=>$request[0][$i]['page'], 
+                'account_id'=>$request[0][$i]['account_id'], 
                 'cashback'=>$request[0][$i]['cashback'], 
                 'payment_delay'=>$request[0][$i]['payment_delay'], 
                 'sale_date'=>$request[0][$i]['sale_date'], 
