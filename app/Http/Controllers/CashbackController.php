@@ -25,26 +25,6 @@ class CashbackController extends Controller
             ]);
     }
 
-    public function getLastInsert()
-    {
-        return Cashback::orderBy('sale_date','DESC')->select('sale_date')->first();
-    }
-
-    public function cashbacksDate()
-    {
-        $data=Cashback::all()
-        // ->where('payment_status','Approuvé')
-        // ->where('page','>','110')
-        // ->take(20)
-        // ->select('sale_date')
-        ->groupBy(function($val) {
-            return Carbon::parse($val->sale_date)->format('m');
-        // orderBy('sale_date','DESC')->select('sale_date')->first();
-        });
-        
-        return $data;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -59,7 +39,7 @@ class CashbackController extends Controller
 
             $data=Cashback::create([
                 'page'=>$request[0][$i]['page'], 
-                'account_id'=>$request[0][$i]['account_id'], 
+                'token'=>$request[0][$i]['token'], 
                 'cashback'=>$request[0][$i]['cashback'], 
                 'payment_delay'=>$request[0][$i]['payment_delay'], 
                 'sale_date'=>$request[0][$i]['sale_date'], 
@@ -93,6 +73,27 @@ class CashbackController extends Controller
         ]);
     
     }
+
+    public function getLastInsert()
+    {
+        return Cashback::orderBy('sale_date','DESC')->select('sale_date')->first();
+    }
+
+    public function cashbacksDate()
+    {
+        $data=Cashback::all()
+        // ->where('payment_status','Approuvé')
+        // ->where('page','>','110')
+        // ->take(20)
+        // ->select('sale_date')
+        ->groupBy(function($val) {
+            return Carbon::parse($val->sale_date)->format('m');
+        // orderBy('sale_date','DESC')->select('sale_date')->first();
+        });
+        
+        return $data;
+    }
+
 
     /**
      * test endpoint

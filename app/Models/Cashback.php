@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cashback extends Model
 {
-    protected $fillable = ['account_id','page', 'cashback', 'payment_delay', 'sale_date', 'sale_amount', 'cashback_rate', 'payment_status','first_item','row_id'];
+    protected $fillable = ['token','page', 'cashback', 'payment_delay', 'sale_date', 'sale_amount', 'cashback_rate', 'payment_status','first_item','row_id'];
 
     use HasFactory;
 
