@@ -16,12 +16,12 @@ use App\Http\Controllers\AccountController;
 
 Route::get('/cashback', function () {
     return view('display_forecast_data');
-});
+})->name('cashback_data');
 
-Route::get('/cashback/?token={token}', function ($token) {
+Route::get('/cb/?token={token}', function ($token) {
     // return view('display_forecast_data');
-    return $token;
-});
+    dd($token);
+})->name('cb.token');
 
 Route::get('/created', function($account){
     return view ('account_created',$account);
