@@ -36,10 +36,6 @@
         <canvas id="myChart"></canvas>
     </div>
 
-    <div>
-        {{$queries}}
-    </div>
-
 <table>
     <tr>
         <th>reception_date</th>
