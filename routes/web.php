@@ -18,8 +18,9 @@ Route::get('/cashback', function () {
     return view('display_forecast_data');
 });
 
-Route::get('/cashback/?token={token}', function () {
-    return view('display_forecast_data');
+Route::get('/cashback/?token={token}', function ($token) {
+    // return view('display_forecast_data');
+    return $token;
 });
 
 Route::get('/created', function($account){
