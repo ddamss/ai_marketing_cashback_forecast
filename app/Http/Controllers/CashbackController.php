@@ -111,7 +111,7 @@ class CashbackController extends Controller
      */
     public function cashbackUser($token)
     {
-         return view('display_forecast_data',$token);
+         return view('display_forecast_data',compact('token'));
     }
 
 }
