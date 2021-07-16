@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Carbon\Carbon;
 use App\Models\Cashback;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Log\LogManager;
+use PhpParser\Node\Stmt\TryCatch;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Log\Monolog\Logger as Monolog;
 
@@ -34,6 +36,13 @@ class CashbackController extends Controller
     public function store(Request $request)
     {
         $data_insertion=[];
+        DB::connection()->enableQueryLog();
+
+        try{
+            $token=$request[2]['token'];
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
 
         for ($i=0;$i<$request[1]['length'];$i++){
 
@@ -54,16 +63,27 @@ class CashbackController extends Controller
 
         }
 
-        $delete=DB::delete('
-        DELETE FROM cashbacks
-        WHERE id NOT IN 
-            (SELECT * FROM 
-                (
-                SELECT MAX(id) FROM cashbacks
-                GROUP BY cashback,payment_delay,sale_amount,cashback_rate,sale_date
-                )tblTemp
-            )'
-        );
+        try{
+            $delete=DB::delete('
+            DELETE FROM cashbacks
+            WHERE id NOT IN 
+                (SELECT * FROM 
+                    (
+                    SELECT MAX(id) FROM cashbacks
+                    WHERE token='.$token.'
+                    GROUP BY cashback,payment_delay,sale_amount,cashback_rate,sale_date
+                    )tblTemp
+                )'
+            );
+            
+        }catch(Exception $e){
+            $query = DB::getQueryLog();
+            return response()->json([
+                'error'=>$e->getMessage(),
+                'query'=>$query,
+                'token'=>$token
+            ]);
+        }
 
     return response()->json(
         [
