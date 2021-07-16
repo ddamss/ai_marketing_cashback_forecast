@@ -81,6 +81,9 @@ class CashbackController extends Controller
 
     public function cashbacksDate(Request $token)
     {
+
+        DB::connection()->enableQueryLog();
+
         $data=Cashback::all()
         // ->where('payment_status','Approuvé')
         ->where('token','=',$token)
@@ -90,8 +93,10 @@ class CashbackController extends Controller
             return Carbon::parse($val->sale_date)->format('m');
         // orderBy('sale_date','DESC')->select('sale_date')->first();
         });
+
+        $queries = DB::getQueryLog();
         
-        return $data;
+        return compact('data','queries');
     }
 
 
