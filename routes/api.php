@@ -25,8 +25,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('cashback',CashbackController::class);
 
-Route::get('getLastInsert', [CashbackController::class, 'getLastInsert'])->name('cashback.getLastInsert');
+Route::get('getLastInsert/token={token}', [CashbackController::class, 'getLastInsert'])->name('cashback.getLastInsert');
 
 Route::get('cashbacksDate/token={token}', [CashbackController::class, 'cashbacksDate'])->name('cashback.cashbacksDate');
+
+// Route::get('cashbacksDate/token={token}', function($token){
+//     return $token;
+// })->name('cashback.cashbacksDate');
+
+Route::get('testParam/param={val}', function($val){
+    return $val;
+})->name('testParam');
 
 Route::get('test', [CashbackController::class, 'test'])->name('test');

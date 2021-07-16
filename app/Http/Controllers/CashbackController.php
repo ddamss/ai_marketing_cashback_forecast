@@ -74,27 +74,30 @@ class CashbackController extends Controller
     
     }
 
-    public function getLastInsert()
+    public function getLastInsert($token)
     {
-        return Cashback::orderBy('sale_date','DESC')->select('sale_date')->first();
+        return Cashback::where('token',$token)
+        ->orderBy('sale_date','DESC')
+        ->select('sale_date')
+        ->first();
     }
 
-    public function cashbacksDate(Request $token)
+    public function cashbacksDate($token)
     {
-
+        
         DB::connection()->enableQueryLog();
 
-        $data=Cashback::where('token','=',$token)
-        // ->take(20)
-        // ->select('sale_date')
+        $data=Cashback::select('*')
+        ->where('token',$token)
+        ->get()
         ->groupBy(function($val) {
             return Carbon::parse($val->sale_date)->format('m');
         // orderBy('sale_date','DESC')->select('sale_date')->first();
-        })->get();
+        });
 
-        $queries = DB::getQueryLog();
+        $query = DB::getQueryLog();
         
-        return compact('data','queries');
+        return $data;
     }
 
 
