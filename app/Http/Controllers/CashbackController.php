@@ -79,11 +79,11 @@ class CashbackController extends Controller
         return Cashback::orderBy('sale_date','DESC')->select('sale_date')->first();
     }
 
-    public function cashbacksDate()
+    public function cashbacksDate(Request $token)
     {
         $data=Cashback::all()
         // ->where('payment_status','Approuvé')
-        // ->where('page','>','110')
+        ->where('token','=',$token)
         // ->take(20)
         // ->select('sale_date')
         ->groupBy(function($val) {
@@ -112,6 +112,16 @@ class CashbackController extends Controller
      */
     public function cashbackUser($token)
     {
+        // $data=Cashback::all()
+        // // ->where('payment_status','Approuvé')
+        // ->where('token','=',$token)
+        // // ->take(20)
+        // // ->select('sale_date')
+        // ->groupBy(function($val) {
+        //     return Carbon::parse($val->sale_date)->format('m');
+        // // orderBy('sale_date','DESC')->select('sale_date')->first();
+        // });
+        
          return view('display_forecast_data',compact('token'));
     }
 

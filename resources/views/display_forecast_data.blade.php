@@ -31,6 +31,7 @@
 </head>
 <body>
     <div>{{$token}}</div><br>
+    <input id="token" type="hidden" value="{{$token}}">
     <div>
         <canvas id="myChart"></canvas>
     </div>
@@ -62,8 +63,10 @@ var obj, requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
-  
-  fetch("https://ai-marketing-cashback-forecast.herokuapp.com/api/cashbacksDate", requestOptions)
+
+var token= document.getElementById("token").value
+
+fetch("https://ai-marketing-cashback-forecast.herokuapp.com/api/cashbacksDate/token="+token, requestOptions)
 .then(res => res.json())
         .then(data => obj = data)
         .then(() => console.log(obj))
