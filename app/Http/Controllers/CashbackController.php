@@ -106,4 +106,12 @@ class CashbackController extends Controller
             ]);
     }
 
+    /**
+     * returns user cashback data based on its token
+     */
+    public function cashbackUser($token)
+    {
+         return view('display_forecast_data',$token);
+    }
+
 }

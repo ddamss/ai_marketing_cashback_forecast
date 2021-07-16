@@ -30,6 +30,7 @@
 
 </head>
 <body>
+    <div>{{token}}</div><br>
     <div>
         <canvas id="myChart"></canvas>
     </div>
