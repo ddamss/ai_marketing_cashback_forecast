@@ -70,10 +70,12 @@ class CashbackController extends Controller
                 (SELECT * FROM 
                     (
                     SELECT MAX(id) FROM cashbacks
-                    WHERE token='.$token.'
-                    GROUP BY cashback,payment_delay,sale_amount,cashback_rate,sale_date
+                    WHERE token=\''.$token.'\'
+                    GROUP BY token,cashback,payment_delay,sale_amount,cashback_rate,sale_date
                     )tblTemp
-                )'
+                )
+                AND token=\''.$token.'\'
+                '
             );
             
         }catch(Exception $e){
